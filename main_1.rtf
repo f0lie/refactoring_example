@@ -1,0 +1,30 @@
+{\rtf1\ansi\uc0\deff0{\fonttbl{\f0\fmodern\fprq1\fcharset0;}}{\colortbl;\red160\green160\blue0;\red186\green33\blue33;\red0\green0\blue255;\red25\green23\blue124;\red188\green122\blue0;\red0\green0\blue128;\red64\green128\blue128;\red0\green128\blue0;\red160\green0\blue0;\red255\green0\blue0;\red0\green160\blue0;\red136\green136\blue136;\red102\green102\blue102;\red187\green187\blue187;\red187\green102\blue136;\red153\green153\blue153;\red125\green144\blue41;\red170\green34\blue255;\red136\green0\blue0;\red0\green68\blue221;\red210\green65\blue58;\red187\green102\blue34;\red128\green0\blue128;\red176\green0\blue64;}\f0 grid {\cf13 =} [[{\cf13 0}]{\cf13 *}{\cf13 5} {\cf8\b for} i {\cf18\b in} {\cf8 range}({\cf13 5})]\par
+\par
+x_1 {\cf13 =} {\cf13 0}\par
+y_1 {\cf13 =} {\cf13 0}\par
+y_velo_1 {\cf13 =} {\cf13 1}\par
+\par
+x_2 {\cf13 =} {\cf13 4}\par
+y_2 {\cf13 =} {\cf13 0}\par
+y_velo_2 {\cf13 =} {\cf13 1}\par
+\par
+{\cf8\b for} i {\cf18\b in} {\cf8 range}({\cf13 9}):\par
+    grid[y_1][x_1] {\cf13 =} {\cf13 1}\par
+    grid[y_2][x_2] {\cf13 =} {\cf13 1}\par
+\par
+    {\cf8\b for} row {\cf18\b in} grid:\par
+        {\cf8\b print}(row)\par
+\par
+    grid[y_1][x_1] {\cf13 =} {\cf13 0}\par
+    grid[y_2][x_2] {\cf13 =} {\cf13 0}\par
+\par
+    {\cf8\b if} y_1 {\cf13 <} {\cf13 0} {\cf18\b or} y_1 {\cf13 >}{\cf13 =} {\cf13 4}:\par
+        y_velo_1 {\cf13 *}{\cf13 =} {\cf13 -}{\cf13 1}\par
+    {\cf8\b if} y_2 {\cf13 <} {\cf13 0} {\cf18\b or} y_2 {\cf13 >}{\cf13 =} {\cf13 4}:\par
+        y_velo_2 {\cf13 *}{\cf13 =} {\cf13 -}{\cf13 1}\par
+    \par
+    y_1 {\cf13 +}{\cf13 =} y_velo_1\par
+    y_2 {\cf13 +}{\cf13 =} y_velo_2\par
+\par
+    {\cf8\b print}()\par
+}
