@@ -1,5 +1,6 @@
-from display import Display
 from collections import namedtuple
+
+from display import Display
 
 class Point():
     def __init__(self, x_pos=0, y_pos=0, x_velo=0, y_velo=0):
@@ -22,7 +23,7 @@ class Point():
             self.y_velo *= -1
             self.y_pos += self.y_velo
 
-Grid_Size = namedtuple('Grid_Size', 'height width')
+GridSize = namedtuple('GridSize', 'height width')
 
 def main():
     points = [Point(0, 0, 1, 1),
@@ -31,9 +32,9 @@ def main():
               Point(4, 4, 0, -1)]
     display = Display(points, 0.05)
 
-    grid_size = Grid_Size(display.height - 5, display.width)
+    grid_size = GridSize(display.height - 1, display.width)
 
-    for i in range(100):
+    for _ in range(50):
         display.draw()
         for point in points:
             point.move()
