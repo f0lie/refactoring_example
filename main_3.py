@@ -38,7 +38,8 @@ class Grid():
 grid = Grid([Point(0, 0, 1, 1),
              Point(0, 0, 0, 1),
              Point(4, 4, -1, -1),
-             Point(4, 4, 0, -1)])
+             Point(4, 4, 0, -1)],
+             grid_size=5)
 
 for i in range(5):
     grid.step()
