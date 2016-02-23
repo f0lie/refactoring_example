@@ -22,10 +22,8 @@ class Point():
 grid_size = 5
 grid = [[0]*grid_size for i in range(grid_size)]
 
-point = Point(x=0, y=0,
-              x_velo=0, y_velo=1)
-point_1 = Point(x=4, y=0,
-                x_velo=0, y_velo=1)
+point = Point(x=0, y=0, x_velo=0, y_velo=1)
+point_1 = Point(x=4, y=0, x_velo=0, y_velo=1)
 
 for i in range(5):
     grid[point.y][point.x] = 1
