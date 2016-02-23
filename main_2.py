@@ -1,6 +1,11 @@
-from namedlist import namedlist
+class Point():
+    def __init__(self, x=0, y=0, x_velo=0, y_velo=0):
+        self.x = x
+        self.y = y
 
-class Point(namedlist("Point", "x y x_velo y_velo", default = 0)):
+        self.x_velo = x_velo
+        self.y_velo = y_velo
+
     def move(self):
         self.x += self.x_velo
         self.y += self.y_velo
