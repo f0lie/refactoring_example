@@ -1,43 +1,43 @@
 class Point():
-    def __init__(self, x=0, y=0, x_velo=0, y_velo=0):
-        self.x = x
-        self.y = y
+    def __init__(self, x_pos=0, y_pos=0, x_velo=0, y_velo=0):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
 
         self.x_velo = x_velo
         self.y_velo = y_velo
 
     def move(self):
-        self.x += self.x_velo
-        self.y += self.y_velo
+        self.x_pos += self.x_velo
+        self.y_pos += self.y_velo
 
     def bounce(self, grid_size):
-        if self.x < 0 or self.x > grid_size - 1:
+        if self.x_pos < 0 or self.x_pos > grid_size - 1:
             self.x_velo *= -1
-            self.x += self.x_velo
+            self.x_pos += self.x_velo
 
-        if self.y < 0 or self.y > grid_size - 1:
+        if self.y_pos < 0 or self.y_pos > grid_size - 1:
             self.y_velo *= -1
-            self.y += self.y_velo
+            self.y_pos += self.y_velo
 
-grid_size = 5
-grid = [[0]*grid_size for i in range(grid_size)]
+GRID_SIZE = 5
+grid = [[0]*GRID_SIZE for i in range(GRID_SIZE)]
 
-point = Point(x=0, y=0, x_velo=0, y_velo=1)
-point_1 = Point(x=4, y=0, x_velo=0, y_velo=1)
+point = Point(x_pos=0, y_pos=0, x_velo=0, y_velo=1)
+point_1 = Point(x_pos=4, y_pos=0, x_velo=0, y_velo=1)
 
 for i in range(5):
-    grid[point.y][point.x] = 1
-    grid[point_1.y][point_1.x] = 1
+    grid[point.y_pos][point.x_pos] = 1
+    grid[point_1.y_pos][point_1.x_pos] = 1
 
     for row in grid:
         print(row)
     print()
 
-    grid[point.y][point.x] = 0
-    grid[point_1.y][point_1.x] = 0
+    grid[point.y_pos][point.x_pos] = 0
+    grid[point_1.y_pos][point_1.x_pos] = 0
 
     point.move()
-    point.bounce(grid_size)
+    point.bounce(GRID_SIZE)
 
     point_1.move()
-    point_1.bounce(grid_size)
+    point_1.bounce(GRID_SIZE)

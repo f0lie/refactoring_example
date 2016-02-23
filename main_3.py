@@ -1,50 +1,53 @@
 class Point():
-    def __init__(self, x=0, y=0, x_velo=0, y_velo=0):
-        self.x = x
-        self.y = y
+    def __init__(self, x_pos=0, y_pos=0, x_velo=0, y_velo=0):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
 
         self.x_velo = x_velo
         self.y_velo = y_velo
 
     def move(self):
-        self.x += self.x_velo
-        self.y += self.y_velo
+        self.x_pos += self.x_velo
+        self.y_pos += self.y_velo
 
     def bounce(self, grid_size):
-        if self.x < 0 or self.x > grid_size - 1:
+        if self.x_pos < 0 or self.x_pos > grid_size - 1:
             self.x_velo *= -1
-            self.x += self.x_velo
+            self.x_pos += self.x_velo
 
-        if self.y < 0 or self.y > grid_size - 1:
+        if self.y_pos < 0 or self.y_pos > grid_size - 1:
             self.y_velo *= -1
-            self.y += self.y_velo
+            self.y_pos += self.y_velo
 
 class Grid():
-    def __init__(self, point_list=[], grid_size=5):
-        self.grid_size = grid_size
+    def __init__(self, point_list=None, grid_size=5):
         self.grid = [[0]*grid_size for i in range(grid_size)]
+        self.grid_size = grid_size
+
+        if point_list is None:
+            point_list = []
         self.points = point_list
 
     def step(self):
         for point in self.points:
-            self.grid[point.y][point.x] = 1
+            self.grid[point.y_pos][point.x_pos] = 1
 
         for row in self.grid:
             print(row)
         print()
 
         for point in self.points:
-            self.grid[point.y][point.x] = 0
+            self.grid[point.y_pos][point.x_pos] = 0
 
         for point in self.points:
             point.move()
             point.bounce(self.grid_size)
 
-grid = Grid([Point(0, 0, 1, 1),
+GRID = Grid([Point(0, 0, 1, 1),
              Point(0, 0, 0, 1),
              Point(4, 4, -1, -1),
              Point(4, 4, 0, -1)],
-             grid_size=5)
+            grid_size=5)
 
 for i in range(5):
-    grid.step()
+    GRID.step()
