@@ -1,6 +1,3 @@
-from display import Display
-from collections import namedtuple
-
 class Point():
     def __init__(self, x_pos=0, y_pos=0, x_velo=0, y_velo=0):
         self.x_pos = x_pos
@@ -14,31 +11,43 @@ class Point():
         self.y_pos += self.y_velo
 
     def bounce(self, grid_size):
-        if self.x_pos < 0 or self.x_pos > grid_size.width - 1:
+        if self.x_pos < 0 or self.x_pos > grid_size - 1:
             self.x_velo *= -1
             self.x_pos += self.x_velo
 
-        if self.y_pos < 0 or self.y_pos > grid_size.height - 1:
+        if self.y_pos < 0 or self.y_pos > grid_size - 1:
             self.y_velo *= -1
             self.y_pos += self.y_velo
 
-Grid_Size = namedtuple('Grid_Size', 'height width')
+class Grid():
+    def __init__(self, point_list=None, grid_size=5):
+        self.grid = [[0]*grid_size for i in range(grid_size)]
+        self.grid_size = grid_size
 
-def main():
-    points = [Point(0, 0, 1, 1),
-              Point(0, 0, 0, 1),
-              Point(4, 4, -1, -1),
-              Point(4, 4, 0, -1)]
-    display = Display(points, 0.05)
+        if point_list is None:
+            point_list = []
+        self.points = point_list
 
-    grid_size = Grid_Size(display.height - 5, display.width)
+    def step(self):
+        for point in self.points:
+            self.grid[point.y_pos][point.x_pos] = 1
 
-    for i in range(100):
-        display.draw()
-        for point in points:
+        for row in self.grid:
+            print(row)
+        print()
+
+        for point in self.points:
+            self.grid[point.y_pos][point.x_pos] = 0
+
+        for point in self.points:
             point.move()
-            point.bounce(grid_size)
+            point.bounce(self.grid_size)
 
-if __name__ == '__main__':
-    with Display.hide_cursor():
-        main()
+GRID = Grid([Point(0, 0, 1, 1),
+             Point(0, 0, 0, 1),
+             Point(4, 4, -1, -1),
+             Point(4, 4, 0, -1)],
+            grid_size=5)
+
+for i in range(5):
+    GRID.step()
