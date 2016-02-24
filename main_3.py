@@ -25,7 +25,7 @@ class Grid():
         self.grid_size = grid_size
 
         if point_list is None:
-            point_list = []
+            self.points = []
         else:
             self.points = point_list
 
