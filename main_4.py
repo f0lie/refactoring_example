@@ -1,9 +1,10 @@
 from collections import namedtuple
+from random import randrange
 
 from display import Display
 
 class Point():
-    def __init__(self, x_pos=0, y_pos=0, x_velo=0, y_velo=0):
+    def __init__(self, y_pos=0, x_pos=0, y_velo=0, x_velo=0):
         self.x_pos = x_pos
         self.y_pos = y_pos
 
@@ -26,17 +27,21 @@ class Point():
 GridSize = namedtuple('GridSize', 'height width')
 
 def main():
-    points = [Point(0, 0, 1, 1),
-              Point(0, 0, 0, 1),
-              Point(4, 4, -1, -1),
-              Point(4, 4, 0, -1)]
-    display = Display(points, 0.05)
+    display = Display(delay=0.05)
+
+    for _ in range(100):
+        display.points.append(Point(randrange(display.height - 1),
+                            randrange(display.width),
+                            randrange(-1,2),
+                            randrange(-1,2)
+                            )
+                            )
 
     grid_size = GridSize(display.height - 1, display.width)
 
-    for _ in range(50):
+    for _ in range(250):
         display.draw()
-        for point in points:
+        for point in display.points:
             point.move()
             point.bounce(grid_size)
 

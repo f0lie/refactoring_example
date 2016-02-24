@@ -11,7 +11,8 @@ class Display():
     def __init__(self, point_list=None, delay=0.05):
         if point_list is None:
             self.points = []
-        self.points = point_list
+        else:
+            self.points = point_list
         self.delay = delay
         print(term.clear)
 
