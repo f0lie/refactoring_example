@@ -1,5 +1,5 @@
 class Point():
-    def __init__(self, x_pos=0, y_pos=0, x_velo=0, y_velo=0):
+    def __init__(self, y_pos=0, x_pos=0, y_velo=0, x_velo=0):
         self.x_pos = x_pos
         self.y_pos = y_pos
 
@@ -22,8 +22,8 @@ class Point():
 GRID_SIZE = 5
 grid = [[0]*GRID_SIZE for i in range(GRID_SIZE)]
 
-point = Point(x_pos=0, y_pos=0, x_velo=0, y_velo=1)
-point_1 = Point(x_pos=4, y_pos=0, x_velo=0, y_velo=1)
+point = Point(y_pos=0, x_pos=0, y_velo=1, x_velo=0)
+point_1 = Point(y_pos=4, x_pos=0, y_velo=1, x_velo=0)
 
 for i in range(5):
     grid[point.y_pos][point.x_pos] = 1
