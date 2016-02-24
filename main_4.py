@@ -36,7 +36,7 @@ def main():
                             randrange(-1,2)
                             )
                             )
-
+    
     grid_size = GridSize(display.height - 1, display.width)
 
     for _ in range(250):
