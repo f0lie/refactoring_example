@@ -26,7 +26,8 @@ class Grid():
 
         if point_list is None:
             point_list = []
-        self.points = point_list
+        else:
+            self.points = point_list
 
     def step(self):
         for point in self.points:
