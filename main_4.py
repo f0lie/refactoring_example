@@ -34,7 +34,7 @@ def main():
                             randrange(-1,2),
                             randrange(-1,2)
                             )
-                            )
+                     )
     
     grid_size = GridSize(Display.height - 1, Display.width)
 
