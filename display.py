@@ -17,10 +17,3 @@ class Display():
             print(term.move(point.y_pos, point.x_pos) + '*')
         sleep(self.delay)
         print(term.clear)
-
-    def __enter__(self):
-        print(term.hide_cursor)
-        return this
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        print(term.normal_cursor)
