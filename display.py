@@ -8,16 +8,12 @@ class Display():
     height = term.height
     width = term.width
 
-    def __init__(self, point_list=None, delay=0.05):
-        if point_list is None:
-            self.points = []
-        else:
-            self.points = point_list
+    def __init__(self, delay=0.05):
         self.delay = delay
         print(term.clear)
 
-    def draw(self):
-        for point in self.points:
+    def draw(self, points):
+        for point in points:
             print(term.move(point.y_pos, point.x_pos) + '*')
         sleep(self.delay)
         print(term.clear)

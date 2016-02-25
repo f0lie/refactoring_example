@@ -29,8 +29,9 @@ GridSize = namedtuple('GridSize', 'height width')
 def main():
     display = Display(delay=0.05)
 
+    points = []
     for _ in range(100):
-        display.points.append(Point(randrange(display.height - 1),
+        points.append(Point(randrange(display.height - 1),
                             randrange(display.width),
                             randrange(-1,2),
                             randrange(-1,2)
@@ -40,8 +41,8 @@ def main():
     grid_size = GridSize(display.height - 1, display.width)
 
     for _ in range(250):
-        display.draw()
-        for point in display.points:
+        display.draw(points)
+        for point in points:
             point.move()
             point.bounce(grid_size)
 
