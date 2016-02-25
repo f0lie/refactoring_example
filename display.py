@@ -1,19 +1,16 @@
 from blessed import Terminal
 from time import sleep
 
-term = Terminal()
-
 class Display():
+    term = Terminal()
     hide_cursor = term.hidden_cursor
     height = term.height
     width = term.width
+    print(term.clear)
 
-    def __init__(self, delay=0.05):
-        self.delay = delay
-        print(term.clear)
-
-    def draw(self, points):
+    @classmethod
+    def draw(cls, points, delay=0.05):
         for point in points:
-            print(term.move(point.y_pos, point.x_pos) + '*')
-        sleep(self.delay)
-        print(term.clear)
+            print(cls.term.move(point.y_pos, point.x_pos) + '*')
+        sleep(delay)
+        print(cls.term.clear)
