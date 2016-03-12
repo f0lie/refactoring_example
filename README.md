@@ -9,8 +9,4 @@ If you want to use main_4.py or display.py, you need to use blessed.
 
 ## Todo
 
-    1. Need to add slides on OOP
-
-    2. Add gifs of actual code running
-
-    3. Change code and show differences between two versions
+    1. Add the blessed version to the presentation.
